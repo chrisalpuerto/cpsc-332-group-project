@@ -1,19 +1,21 @@
-### CSPC 332 Group Project
+# CSPC 332 Group Project
 
-# Authors: Chris Alpuerto, Jairo Santos, Adonay Yonnas
+### Authors: Chris Alpuerto, Jairo Santos, Ananya Karthi, Adonay Yonnas
 
-SET UP:
+## SET UP:
 
 1. Set up your local MySQL server on your device
 Install MySQL:
 `brew install mysql` (mac)
 
-Start MySQL local server:
+2. Start MySQL local server:
 `brew services start mysql` (mac) or 
-Set up MySQL Server Credentials (important)
+
+3. Set up MySQL Server Credentials (important)
 `mysql_secure_installation`
 NOTE: use root and desired password (I used Csuf_332 as an easy password)
-Log Into MySQL:
+
+4. Log Into MySQL:
 `mysql -u root -p`
 It will ask to enter password, enter password that you created and press enter (nothing will show up while typing password but just input password and enter)
 
