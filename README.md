@@ -2,11 +2,11 @@
 
 ### Authors: Chris Alpuerto, Jairo Santos, Ananya Karthi, Adonay Yonnas
 
-## SET UP:
+## MySQL SET UP:
 
 1. Set up your local MySQL server on your device
 Install MySQL:
-`brew install mysql` (mac)
+`brew install mysql` (mac) or `choco install mysql` (windows)
 
 2. Start MySQL local server:
 `brew services start mysql` (mac) or 
@@ -28,4 +28,22 @@ To run SQL files, you will have the .sql file with the commands you want to run 
 
 If you have got to this point, you are all set! You may make your own SQL files and test things out!
 
-2. 
+
+## Jupyter Notebook SET UP (jupysql)
+
+We mainly plan on using this for history control, as to also show output history as well. To set this up:
+
+0. Regularly install and start MySQL as usual
+1. Install python: `brew install python`
+2. Install Jupyter Notebook: ``
+3. create environment folder and install requirements:
+- `python3 -m venv venv`
+- `source venv/bin/activate` (use this as your environment)
+- `pip install requirements.txt` (install requirements)
+
+Once this is all done, we can start using the Jupyter Notebook to run SQL commmands.
+IMPORTANT NOTES:
+- use % sql {SQL commands} to run the SQL commands
+- use ! {terminal command} to run any needed terminal commands
+
+I have the notebook set up, you may add / delete as needed
