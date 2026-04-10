@@ -39,7 +39,7 @@ We mainly plan on using this for history control, as to also show output history
 3. create environment folder and install requirements:
 - `python3 -m venv venv`
 - `source venv/bin/activate` (use this as your environment)
-- `pip install requirements.txt` (install requirements)
+- `pip install -r requirements.txt` (install requirements)
 
 Once this is all done, we can start using the Jupyter Notebook to run SQL commmands.
 IMPORTANT NOTES:
