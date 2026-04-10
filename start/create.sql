@@ -1,2 +1,0 @@
-CREATE DATABASE study_spots_database;
-USE study_spots_database;

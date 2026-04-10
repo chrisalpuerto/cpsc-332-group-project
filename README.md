@@ -24,7 +24,7 @@ If successful, you should see: `my sql>` in the terminal.
 At this point, you are all set and ready to start running SQL commands!
 
 To run SQL files, you will have the .sql file with the commands you want to run inside that file. Once done, you can do `source {filename}.sql` inside terminal to run that SQL file. I have a few of theses set up for you guys:
-- _start_ folder has *create.sql* and *check_db.sql* to create the main database. You can try `source start/create.sql` to create the database, and `source start/check_db.sql` to check if the databases were created.
+- _start_ folder has *create.sql* and *check_db.sql* to create the main database. You can try `source create.sql` to create the database, and `source schemas/check_db.sql` to check if the databases were created.
 
 If you have got to this point, you are all set! You may make your own SQL files and test things out!
 
