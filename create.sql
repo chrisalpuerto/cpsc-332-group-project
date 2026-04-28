@@ -1,3 +1,6 @@
+-- create.sql - all DDL commands for CPSC 332 Group Project
+-- AUTHORS: 
+
 CREATE DATABASE study_spots_database;
 USE study_spots_database;
 CREATE TABLE users (
@@ -61,6 +64,11 @@ CREATE TABLE Hours (
     isClosed BOOLEAN NOT NULL DEFAULT FALSE,
     SpotID INT,
     FOREIGN KEY (SpotID) REFERENCES Study_Spots(SpotID)
+);
+
+CREATE TABLE Amenity (
+    AmenityID VARCHAR(255) PRIMARY KEY,
+    AmenityName VARCHAR(255)
 );
 
 CREATE TABLE Study_Spot_Amentity (
