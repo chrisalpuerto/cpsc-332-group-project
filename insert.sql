@@ -1,6 +1,7 @@
 
 -- insert.sql - all insert commands for CPSC 332 Group Project, including sample data for testing
 -- AUTHORS:
+-- Chris Alpuerto, Ananya Karthi, Adonay Yonnas, Jairo Santos
 
 
 
@@ -11,9 +12,9 @@ INSERT INTO users (user_id, username, email, first_name, last_name, join_date) V
 (4, 'study_nerd', 'chris.a@email.com', 'Chris', 'Alpuerto', '2026-02-15');
 
 INSERT INTO Location (LocationID, Latitude, Longitude, StreetAddress, City, State, ZipCode) VALUES
-('LOC001', '33.8823', '-117.8851', '800 N State College Blvd', 'Fullerton', 'CA', 92831),
-('LOC002', '33.8704', '-117.9242', '123 Brew Lane', 'Fullerton', 'CA', 92832),
-('LOC003', '34.0522', '-118.2437', '456 Library Way', 'Los Angeles', 'CA', 90012);
+('LOC001', '33.88135', '-117.88525', '800 State College Blvd', 'Fullerton', 'CA', 92834),
+('LOC002', '33.87373', '-117.92417', '444 N Harbor Blvd', 'Fullerton', 'CA', 92832),
+('LOC003', '33.78765', '-117.85372', '100 W Chapman Ave', 'Orange', 'CA', 92866);
 
 INSERT INTO Category (CategoryID, CategoryName) VALUES
 ('CAT01', 'Cafe'),
@@ -23,32 +24,32 @@ INSERT INTO Category (CategoryID, CategoryName) VALUES
 INSERT INTO Amenity (AmenityID, AmenityName) VALUES
 ('AMEN01', 'Wi-Fi'),
 ('AMEN02', 'Power Outlets'),
-('AMEN03', 'Outdoor Seating'),
+('AMEN03', 'Indoor Seating'),
 ('AMEN04', 'Restrooms');
 
 INSERT INTO StudySpot (SpotID, SpotName, Description, Website, PhoneNum, PriceLevel, CategoryID, LocationID) VALUES
-('SPOT01', 'Titan Student Union', 'Central hub at CSUF with plenty of tables.', 'fullerton.edu/tsu', 7142782011, 1.0, 'CAT02', 'LOC001'),
-('SPOT02', 'The Daily Grind', 'Cozy local cafe with great espresso.', 'dailygrindcafe.com', 7145550199, 2.0, 'CAT01', 'LOC002'),
-('SPOT03', 'Central Library', 'Quiet atmosphere perfect for deep focus.', 'lapl.org', 2135550100, 0.0, 'CAT02', 'LOC003');
+('SPOT01', 'Pollak Library', 'Central library at CSUF with plenty of tables and outlets.', 'library.fullerton.edu', 7142782011, 0.0, 'CAT01', 'LOC001'),
+('SPOT02', 'Lovetta', 'Cozy local cafe with great espresso.', 'lovetta-fullerton.square.site', 7145193130, 1.0, 'CAT02', 'LOC002'),
+('SPOT03', 'Urth Caffe', 'Breakfast and lunch spot with a cozy atmosphere.', 'urthcaffe.com', 9493295755, 3.0, 'CAT03', 'LOC003');
 
 INSERT INTO Hours (HoursID, SpotID, DayOfWeek, OpenTime, CloseTime, IsClosed) VALUES
 ('H001', 'SPOT01', 'Monday', '07:00:00', '22:00:00', FALSE),
 ('H002', 'SPOT01', 'Sunday', '00:00:00', '00:00:00', TRUE),
-('H003', 'SPOT02', 'Monday', '06:00:00', '18:00:00', FALSE);
+('H003', 'SPOT02', 'Monday', '07:00:00', '18:00:00', FALSE);
 
 -- Ratings are on a scale of 1-10 
 INSERT INTO Review (ReviewID, UserID, SpotID, Rating, ReviewText, ReviewDate, NoiseLevel, WifiQuality, OutletAvailable) VALUES
-('REV01', 1, 'SPOT01', 8, 'Great spot, but can get noisy during lunch.', '2024-03-01', 7, 'Excellent', TRUE),
-('REV02', 2, 'SPOT02', 9, 'Best lattes in town and very reliable Wi-Fi.', '2024-03-05', 3, 'High Speed', TRUE),
-('REV03', 3, 'SPOT03', 10, 'Silent and peaceful.', '2024-03-10', 1, 'Average', FALSE);
+('REV01', 1, 'SPOT03', 8, 'Great spot, but can get noisy during lunch.', '2026-03-01', 7, 'Good', FALSE),
+('REV02', 2, 'SPOT02', 9, 'Great lattes and very reliable Wi-Fi.', '2026-03-05', 3, 'High Speed', TRUE),
+('REV03', 3, 'SPOT01', 10, 'Silent and peaceful.', '2026-03-10', 1, 'Average', TRUE);
 
 INSERT INTO Photo (PhotoID, SpotID, PhotoURL, UploadDate, Caption) VALUES
-('PH01', 'SPOT01', 'http://images.com/tsu_interior.jpg', '2024-03-01', 'Main seating area'),
-('PH02', 'SPOT02', 'http://images.com/coffee_corner.jpg', '2024-03-05', 'My favorite corner booth');
+('PH01', 'SPOT01', '', '2026-03-01', 'Quietest study spot in the library'),
+('PH02', 'SPOT02', '', '2026-03-05', 'Seat with outlet available');
 
 INSERT INTO Study_Spot_Amenity (SpotID, AmenityID) VALUES
-('SPOT01', 'AMEN01'), -- TSU has Wi-Fi
-('SPOT01', 'AMEN02'), -- TSU has Outlets
-('SPOT02', 'AMEN01'), -- Cafe has Wi-Fi
-('SPOT02', 'AMEN03'), -- Cafe has Outdoor Seating
-('SPOT03', 'AMEN04'); -- Library has Restrooms
+('SPOT01', 'AMEN01'), -- Pollak Library has Wi-Fi
+('SPOT01', 'AMEN02'), -- Pollak Library has Outlets
+('SPOT02', 'AMEN01'), -- Lovetta has Wi-Fi
+('SPOT02', 'AMEN03'), -- Lovetta has indoor Seating
+('SPOT03', 'AMEN04'); -- Urth Caffe has Restrooms

@@ -3,79 +3,88 @@
 
 CREATE DATABASE study_spots_database;
 USE study_spots_database;
+
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
     joinDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE study_spots (
-    spot_id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE StudySpot (
+    SpotID VARCHAR(50) PRIMARY KEY,
     spotName VARCHAR(100) NOT NULL,
+    Description TEXT,
+    Website VARCHAR(255),
     location VARCHAR(255) NOT NULL,
-    description TEXT,
     phoneNumber VARCHAR(20),
-    PriceLevel VARCHAR(50),
-    CategoryID INT,
-    LocationID INT,
+    PriceLevel FLOAT,
+    CategoryID VARCHAR(50),
+    LocationID VARCHAR(50),
     FOREIGN KEY (CategoryID) REFERENCES category(CategoryID),
     FOREIGN KEY (LocationID) REFERENCES Location(LocationID)
 );
 
 CREATE TABLE category (
-    CategoryID INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    CategoryID VARCHAR(50) PRIMARY KEY UNIQUE,
     CategoryName VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Location (
-    LocationID INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    LocationID VARCHAR(50) PRIMARY KEY UNIQUE,
     StreetAddress VARCHAR(255) NOT NULL,
     City VARCHAR(100) NOT NULL,
     State VARCHAR(50) NOT NULL,
-    ZipCode INT CHECK (ZipCode >= 10000 AND ZipCode <= 99999)
+    ZipCode INT CHECK (ZipCode >= 10000 AND ZipCode <= 99999),
     Latitude DECIMAL(10, 7),
     Longitude DECIMAL(10, 7)
 );
 
 CREATE TABLE Review (
-    ReviewID INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    Rating INT CHECK (Rating >= 1 AND Rating <= 5),
+    ReviewID VARCHAR(50) PRIMARY KEY,
+    UserID INT NOT NULL, 
+    SpotID VARCHAR(50) NOT NULL,
+    Rating INT CHECK (Rating >= 1 AND Rating <= 10),
     ReviewText TEXT,
-    ReviewDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    NoiseLevel INT CHECK (NoiseLevel >= 1 and NoiseLevel <= 5),
-    WifiQuality INT CHECK (WifiQuality >= 1 and WifiQuality <= 5)
+    ReviewDate DATE,
+    NoiseLevel INT,
+    WifiQuality VARCHAR(50),
+    OutletAvailable BOOLEAN,
+    FOREIGN KEY (UserID) REFERENCES users(user_id),
+    FOREIGN KEY (SpotID) REFERENCES StudySpot(SpotID)
 );
 
 CREATE TABLE Photo (
-    PhotoID INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    PhotoID VARCHAR(50) PRIMARY KEY,
+    SpotID VARCHAR(50),
     PhotoURL VARCHAR(255) NOT NULL,
+    UploadDate DATE, 
     Caption TEXT,
-    SpotID INT,
     FOREIGN KEY (SpotID) REFERENCES StudySpot(SpotID)
 );
 
 CREATE TABLE Hours (
-    HoursID INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    HoursID VARCHAR(50) PRIMARY KEY,
+    SpotID VARCHAR(50),
     DayOfWeek VARCHAR(20) NOT NULL,
     OpenTime TIME NOT NULL,
     CloseTime TIME NOT NULL,
-    isClosed BOOLEAN NOT NULL DEFAULT FALSE,
-    SpotID INT,
-    FOREIGN KEY (SpotID) REFERENCES Study_Spots(SpotID)
+    IsClosed BOOLEAN NOT NULL DEFAULT FALSE,
+    FOREIGN KEY (SpotID) REFERENCES StudySpot(SpotID)
 );
 
 CREATE TABLE Amenity (
-    AmenityID VARCHAR(255) PRIMARY KEY,
+    AmenityID VARCHAR(50) PRIMARY KEY,
     AmenityName VARCHAR(255)
 );
 
-CREATE TABLE Study_Spot_Amentity (
-    AmentityID VARCHAR(255),
-    SpotID INT,
-    PRIMARY KEY (AmentityID, SpotID),
-    AmentityName VARCHAR(50) NOT NULL,
-    FOREIGN KEY (SpotID) REFERENCES study_spots(spot_id),
-    FOREIGN KEY (AmentityID) REFERENCES AmentityID(AmentityID)
+CREATE TABLE Study_Spot_Amenity (
+    SpotID VARCHAR(50),
+    AmenityID VARCHAR(50),
+    PRIMARY KEY (SpotID, AmenityID),
+    FOREIGN KEY (SpotID) REFERENCES StudySpot(SpotID),
+    FOREIGN KEY (AmenityID) REFERENCES Amenity(AmenityID)
 );
