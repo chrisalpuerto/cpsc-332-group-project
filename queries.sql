@@ -1,4 +1,6 @@
--- Query file
+-- queries.sql: all SQL queries for CPSC 332 Group Project, organized by use case
+-- AUTHORS:
+-- Chris Alpuerto, Ananya Karthi, Jairo Santos, Adonay Yonnas
 
 
 -- SET 1: Discovery and search (user use cases)

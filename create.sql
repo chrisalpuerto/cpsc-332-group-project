@@ -1,5 +1,6 @@
 -- create.sql - all DDL commands for CPSC 332 Group Project
 -- AUTHORS: 
+-- Chris Alpuerto, Ananya Karthi, Jairo Santos, Adonay Yonnas
 
 CREATE DATABASE study_spots_database;
 USE study_spots_database;

@@ -1,7 +1,7 @@
 
 -- insert.sql - all insert commands for CPSC 332 Group Project, including sample data for testing
 -- AUTHORS:
--- Chris Alpuerto, Ananya Karthi, Adonay Yonnas, Jairo Santos
+-- Chris Alpuerto, Ananya Karthi, Jairo Santos, Adonay Yonnas
 
 
 
