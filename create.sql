@@ -15,20 +15,6 @@ CREATE TABLE users (
     joinDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE StudySpot (
-    SpotID VARCHAR(50) PRIMARY KEY,
-    spotName VARCHAR(100) NOT NULL,
-    Description TEXT,
-    Website VARCHAR(255),
-    location VARCHAR(255) NOT NULL,
-    phoneNumber VARCHAR(20),
-    PriceLevel FLOAT,
-    CategoryID VARCHAR(50),
-    LocationID VARCHAR(50),
-    FOREIGN KEY (CategoryID) REFERENCES category(CategoryID),
-    FOREIGN KEY (LocationID) REFERENCES Location(LocationID)
-);
-
 CREATE TABLE category (
     CategoryID VARCHAR(50) PRIMARY KEY UNIQUE,
     CategoryName VARCHAR(50) NOT NULL
@@ -43,6 +29,23 @@ CREATE TABLE Location (
     Latitude DECIMAL(10, 7),
     Longitude DECIMAL(10, 7)
 );
+
+CREATE TABLE StudySpot (
+    SpotID VARCHAR(50) PRIMARY KEY,
+    spotName VARCHAR(100) NOT NULL,
+    Description TEXT,
+    Website VARCHAR(255),
+    location VARCHAR(255) NOT NULL,
+    phoneNumber VARCHAR(20),
+    PriceLevel FLOAT,
+    CategoryID VARCHAR(50),
+    LocationID VARCHAR(50),
+    FOREIGN KEY (CategoryID) REFERENCES category(CategoryID),
+    FOREIGN KEY (LocationID) REFERENCES Location(LocationID)
+);
+
+
+
 
 CREATE TABLE Review (
     ReviewID VARCHAR(50) PRIMARY KEY,

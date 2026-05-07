@@ -5,7 +5,7 @@
 
 
 
-INSERT INTO users (user_id, username, email, first_name, last_name, join_date) VALUES
+INSERT INTO users (user_id, username, email, first_name, last_name, joinDate) VALUES
 (1, 'study_pro', 'ananya.k@email.com', 'Ananya', 'Karthi', '2026-01-15'),
 (2, 'coffee_lover', 'jairo.s@email.com', 'Jairo', 'Santos', '2026-02-01'),
 (3, 'lib_finatic', 'adonay.y@email.com', 'Adonay', 'Yonnas', '2026-02-10'),
