@@ -20,7 +20,7 @@ WHERE a.AmenityName = 'Wi-Fi';
 -- query 3 set 1: identify spots open on a specific day
 SELECT s.spotName, h.OpenTime, h.CloseTime
 FROM StudySpot s
-JOIN Hours h ON s.spot_id = h.SpotID
+JOIN Hours h ON s.SpotID = h.SpotID
 WHERE h.DayOfWeek = 'Monday' AND h.isClosed = FALSE;
 
 -- SET 2: Social and feedback (community use cases)

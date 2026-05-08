@@ -27,7 +27,7 @@ INSERT INTO Amenity (AmenityID, AmenityName) VALUES
 ('AMEN03', 'Indoor Seating'),
 ('AMEN04', 'Restrooms');
 
-INSERT INTO StudySpot (SpotID, SpotName, Description, Website, PhoneNum, PriceLevel, CategoryID, LocationID) VALUES
+INSERT INTO StudySpot (SpotID, SpotName, Description, Website, PhoneNumber, PriceLevel, CategoryID, LocationID) VALUES
 ('SPOT01', 'Pollak Library', 'Central library at CSUF with plenty of tables and outlets.', 'library.fullerton.edu', 7142782011, 0.0, 'CAT01', 'LOC001'),
 ('SPOT02', 'Lovetta', 'Cozy local cafe with great espresso.', 'lovetta-fullerton.square.site', 7145193130, 1.0, 'CAT02', 'LOC002'),
 ('SPOT03', 'Urth Caffe', 'Breakfast and lunch spot with a cozy atmosphere.', 'urthcaffe.com', 9493295755, 3.0, 'CAT03', 'LOC003');

@@ -34,7 +34,7 @@ CREATE TABLE StudySpot (
     spotName VARCHAR(100) NOT NULL,
     Description TEXT,
     Website VARCHAR(255),
-    phoneNumber VARCHAR(20),
+    PhoneNumber VARCHAR(20),
     PriceLevel FLOAT,
     CategoryID VARCHAR(50),
     LocationID VARCHAR(50),
