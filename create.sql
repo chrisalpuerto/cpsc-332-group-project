@@ -9,7 +9,6 @@ CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     joinDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -35,7 +34,6 @@ CREATE TABLE StudySpot (
     spotName VARCHAR(100) NOT NULL,
     Description TEXT,
     Website VARCHAR(255),
-    location VARCHAR(255) NOT NULL,
     phoneNumber VARCHAR(20),
     PriceLevel FLOAT,
     CategoryID VARCHAR(50),
@@ -43,8 +41,6 @@ CREATE TABLE StudySpot (
     FOREIGN KEY (CategoryID) REFERENCES category(CategoryID),
     FOREIGN KEY (LocationID) REFERENCES Location(LocationID)
 );
-
-
 
 
 CREATE TABLE Review (
